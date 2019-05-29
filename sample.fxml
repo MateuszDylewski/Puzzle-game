@@ -18,7 +18,7 @@
             <Font size="39.0" />
          </font>
       </Text>
-      <ComboBox fx:id="cBoxSizeOfScene" layoutX="75.0" layoutY="225.0" prefWidth="150.0" />
-      <Button layoutX="112.0" layoutY="411.0" mnemonicParsing="false" text="END GAME" />
+      <ComboBox fx:id="cBoxSizeOfScene" layoutX="76.0" layoutY="265.0" prefWidth="150.0" />
+      <Button layoutX="86.0" layoutY="405.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" text="END GAME" />
    </children>
 </AnchorPane>
