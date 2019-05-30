@@ -3,6 +3,7 @@ package sample;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.Pane;
@@ -43,11 +44,11 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        s1.setScene(new javafx.scene.Scene(pane, 300, 450));
-        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        /*s1.setY((d.getHeight()-675)/2);
-        s1.setX((d.getWidth()-1200)/2);*/
+        Scene scene = new Scene(pane, 300, 450);
+        scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        s1.setScene(scene);
         s1.show();
+
     }
 
     @FXML

@@ -2,6 +2,7 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -32,11 +33,9 @@ public class Controller2 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        s2.setTitle("WIDOK2");
-        s2.setScene(new javafx.scene.Scene(pane, 300, 450));
-        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        /*s2.setY((d.getHeight()-675)/2);
-        s2.setX((d.getWidth()-1200)/2);*/
+        Scene scene = new Scene(pane, 300, 450);
+        scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        s2.setScene(scene);
         s2.show();
     }
 }

@@ -3,6 +3,7 @@ package sample;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -22,7 +23,9 @@ public class Main extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        primaryStage.setScene(new javafx.scene.Scene(pane, 300, 450));
+        Scene scene = new Scene(pane, 300, 450);
+        scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
