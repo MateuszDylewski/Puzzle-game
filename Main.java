@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {//throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Controller controller = new Controller(primaryStage);
         loader.setController(controller);
@@ -22,7 +22,6 @@ public class Main extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        primaryStage.setTitle("Klocki");
         primaryStage.setScene(new javafx.scene.Scene(pane, 300, 450));
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.TRANSPARENT);

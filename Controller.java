@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -12,8 +13,7 @@ import java.awt.*;
 import java.io.IOException;
 
 public class Controller {
-    @FXML
-    Button bStart;
+
     @FXML
     ComboBox<String> cBoxSizeOfScene;
 
@@ -33,7 +33,7 @@ public class Controller {
     }
 
     @FXML
-    public void onClick(){
+    public void onClickStart(){
         System.out.println("W1BCLICK");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
         Controller2 controller = new Controller2(s1);
@@ -44,11 +44,15 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        s1.setTitle("WIDOK1");
-        s1.setScene(new javafx.scene.Scene(pane, 1200, 675));
+        s1.setScene(new javafx.scene.Scene(pane, 300, 450));
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        s1.setY((d.getHeight()-675)/2);
-        s1.setX((d.getWidth()-1200)/2);
+        /*s1.setY((d.getHeight()-675)/2);
+        s1.setX((d.getWidth()-1200)/2);*/
         s1.show();
+    }
+
+    @FXML
+    public void onClickEndGame(){
+        Platform.exit();
     }
 }

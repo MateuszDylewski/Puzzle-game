@@ -23,7 +23,7 @@ public class Controller2 {
     @FXML
     public void onClick(){
         System.out.println("W2BCLICK");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("widok1.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Controller controller = new Controller(s2);
         loader.setController(controller);
         Pane pane = null;
@@ -33,10 +33,10 @@ public class Controller2 {
             e.printStackTrace();
         }
         s2.setTitle("WIDOK2");
-        s2.setScene(new javafx.scene.Scene(pane, 1200, 675));
+        s2.setScene(new javafx.scene.Scene(pane, 300, 450));
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        s2.setY((d.getHeight()-675)/2);
-        s2.setX((d.getWidth()-1200)/2);
+        /*s2.setY((d.getHeight()-675)/2);
+        s2.setX((d.getWidth()-1200)/2);*/
         s2.show();
     }
 }
