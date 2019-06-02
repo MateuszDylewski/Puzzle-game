@@ -4,31 +4,17 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 
-public class Controller {
-
-    @FXML
-    ComboBox<String> cBoxSizeOfScene;
+public class SampleController {
 
     Stage s1;
 
-    @FXML
-    void initialize(){
-        cBoxSizeOfScene.getItems().add("4098x2160");
-        cBoxSizeOfScene.getItems().add("1920x1080");
-
-        System.out.println("asd");
-        cBoxSizeOfScene.getSelectionModel().selectFirst();
-    }
-
-    Controller(Stage s1){
+    SampleController(Stage s1){
         this.s1 = s1;
     }
 
@@ -36,7 +22,7 @@ public class Controller {
     public void onClickStart(){
         System.out.println("W1BCLICK");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
-        Controller2 controller = new Controller2(s1);
+        SettingsController controller = new SettingsController(s1);
         loader.setController(controller);
         Pane pane = null;
         try {
@@ -45,9 +31,14 @@ public class Controller {
             e.printStackTrace();
         }
         Scene scene = new Scene(pane, 300, 450);
-        scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        scene.getStylesheets().add("sample/style.css");
         s1.setScene(scene);
         s1.show();
+    }
+    @FXML
+    Text t1;
+    @FXML
+    public void onDrag(){
 
     }
 

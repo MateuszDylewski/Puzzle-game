@@ -1,7 +1,27 @@
-#button{
-    -fx-background-repeat: 50;
-}
-
 #pane{
     -fx-background-image: url("background.jpg");
+    -fx-font-family: Cambria;
+    -fx-font-size: 40px;
+}
+
+.paneS{
+    -fx-font-size: 25px;
+}
+
+.bigText{
+    -fx-font-size: 40px;
+}
+
+.smallText{
+    -fx-font-size: 25px;
+}
+
+.smallText:hover{
+    -fx-font-size: 115%;
+    -fx-underline: true;
+}
+
+#choosen{
+    -fx-font-size: 115%;
+    -fx-underline: true;
 }

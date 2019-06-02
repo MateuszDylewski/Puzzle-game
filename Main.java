@@ -2,7 +2,6 @@ package sample;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -15,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {//throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
-        Controller controller = new Controller(primaryStage);
+        SampleController controller = new SampleController(primaryStage);
         loader.setController(controller);
         Pane pane = null;
         try {
@@ -24,7 +23,7 @@ public class Main extends Application {
             e.printStackTrace();
         }
         Scene scene = new Scene(pane, 300, 450);
-        scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        scene.getStylesheets().add("sample/style.css");//All(this.getClass().getResource("style.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
@@ -32,6 +31,9 @@ public class Main extends Application {
     }
 
     public static void main(String[] args){
-        launch(args);
+        Thread t = new Thread(() -> {
+            launch(args);
+        });
+        t.start();
     }
 }

@@ -1,27 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button layoutX="45.0" layoutY="139.0" mnemonicParsing="false" onAction="#onClickStart" prefHeight="63.0" prefWidth="211.0" text="START">
-         <font>
-            <Font name="Dubai Regular" size="25.0" />
-         </font>
-      </Button>
-      <Text layoutX="15.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GRA W KLOCKI" textAlignment="CENTER" wrappingWidth="270.7529296875" AnchorPane.topAnchor="50.0">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Text>
-      <ComboBox fx:id="cBoxSizeOfScene" layoutX="64.0" layoutY="264.0" prefHeight="52.0" prefWidth="172.0" />
-      <Button onAction="#onClickEndGame" layoutX="86.0" layoutY="399.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" text="END GAME" AnchorPane.bottomAnchor="14.0">
-         <font>
-            <Font size="16.0" />
-         </font></Button>
-   </children>
+<AnchorPane fx:id="pane" prefHeight="450.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1">
+    <Text styleClass="bigText" wrappingWidth="300.0" layoutY="70" textAlignment="CENTER">
+        PUZZLE-GAME
+    </Text>
+    <AnchorPane styleClass="paneS">
+        <Text styleClass="smallText" onMouseClicked="#onClickStart" wrappingWidth="300.0" layoutY="140" textAlignment="CENTER">
+            START
+        </Text>
+        <Text styleClass="smallText" onMouseClicked="#onClickEndGame" wrappingWidth="300.0" layoutY="420" textAlignment="CENTER">
+            LEAVE GAME
+        </Text>
+    </AnchorPane>
 </AnchorPane>
