@@ -8,10 +8,12 @@
         PUZZLE-GAME
     </Text>
     <AnchorPane styleClass="paneS">
-        <Text styleClass="smallText" onMouseClicked="#onClickStart" wrappingWidth="300.0" layoutY="140" textAlignment="CENTER">
+        <Text styleClass="smallText" onMouseClicked="#onClickStart"
+              wrappingWidth="300.0" layoutY="140" textAlignment="CENTER">
             START
         </Text>
-        <Text styleClass="smallText" onMouseClicked="#onClickEndGame" wrappingWidth="300.0" layoutY="420" textAlignment="CENTER">
+        <Text styleClass="smallText" onMouseClicked="#onClickEndGame"
+              wrappingWidth="300.0" layoutY="420" textAlignment="CENTER">
             LEAVE GAME
         </Text>
     </AnchorPane>

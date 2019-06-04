@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class SettingsController {
@@ -101,9 +102,8 @@ public class SettingsController {
 
     @FXML
     public void onClickPlay(){
-        System.out.println("W2BCLICK");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
-        SampleController controller = new SampleController(s2);
+        GameController controller = new GameController(s2, 3);
         loader.setController(controller);
         Pane pane = null;
         try {
@@ -111,8 +111,11 @@ public class SettingsController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene scene = new Scene(pane, 300, 450);
+        Scene scene = new Scene(pane, 1000, 600);
         scene.getStylesheets().add("sample/style.css");
+        Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+        s2.setX((screensize.getWidth()-1000)/2);
+        s2.setY((screensize.getHeight()-600)/3);
         s2.setScene(scene);
         s2.show();
     }
