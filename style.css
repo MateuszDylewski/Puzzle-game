@@ -5,7 +5,7 @@
 }
 
 .paneS{
-    -fx-font-size: 25px;
+    -fx-font-size: 30px;
 }
 
 .bigText{
@@ -13,8 +13,8 @@
 }
 
 .smallText{
-    -fx-font-family: Cambria;
-    -fx-font-size: 25px;
+    -fx-font-family: Consolas;
+    -fx-font-size: 30px;
 }
 
 .smallText:hover{
@@ -25,4 +25,9 @@
 #choosen{
     -fx-font-size: 115%;
     -fx-underline: true;
+}
+
+.timer{
+    -fx-font-size: 50px;
+    -fx-font-family: Consolas;
 }

@@ -3,13 +3,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" prefHeight="450.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="pane" prefHeight="450.0" prefWidth="300.0"
+            xmlns:fx="http://javafx.com/fxml/1">
     <Text styleClass="bigText" wrappingWidth="300.0" layoutY="70" textAlignment="CENTER">
         PUZZLE-GAME
     </Text>
     <AnchorPane styleClass="paneS">
         <Text styleClass="smallText" onMouseClicked="#onClickStart"
-              wrappingWidth="300.0" layoutY="140" textAlignment="CENTER">
+              wrappingWidth="300.0" layoutY="165.0" textAlignment="CENTER">
             START
         </Text>
         <Text styleClass="smallText" onMouseClicked="#onClickEndGame"

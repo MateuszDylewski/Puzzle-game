@@ -26,8 +26,6 @@ public class SettingsController {
     Text tCS;
     @FXML
     TextField tfR;
-    @FXML
-    TextField tfC;
 
     SettingsController(Stage s2){
         this.s2 = s2;
@@ -40,9 +38,6 @@ public class SettingsController {
             t3x3.setId("choosen");
             t4x4.setId("");
             t5x5.setId("");
-            tCS.setId("");
-            tfC.setEditable(false);
-            tfR.setEditable(false);
             choosen = 3;
         }
     }
@@ -52,34 +47,16 @@ public class SettingsController {
             t3x3.setId("");
             t4x4.setId("choosen");
             t5x5.setId("");
-            tCS.setId("");
-            tfC.setEditable(false);
-            tfR.setEditable(false);
             choosen = 4;
         }
     }
     @FXML
-    public void onClick5x5(){
+    public void onClick5x5() {
         while (choosen != 5) {
             t3x3.setId("");
             t4x4.setId("");
             t5x5.setId("choosen");
-            tCS.setId("");
-            tfC.setEditable(false);
-            tfR.setEditable(false);
             choosen = 5;
-        }
-    }
-    @FXML
-    public void onClickCS(){
-        while (choosen != 0){
-            t3x3.setId("");
-            t4x4.setId("");
-            t5x5.setId("");
-            tCS.setId("choosen");
-            tfC.setEditable(true);
-            tfR.setEditable(true);
-            choosen = 0;
         }
     }
 
@@ -103,7 +80,7 @@ public class SettingsController {
     @FXML
     public void onClickPlay(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
-        GameController controller = new GameController(s2, 3);
+        GameController controller = new GameController(s2, choosen);
         loader.setController(controller);
         Pane pane = null;
         try {
@@ -111,11 +88,11 @@ public class SettingsController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene scene = new Scene(pane, 1000, 600);
+        Scene scene = new Scene(pane, 1000, 660);
         scene.getStylesheets().add("sample/style.css");
         Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
         s2.setX((screensize.getWidth()-1000)/2);
-        s2.setY((screensize.getHeight()-600)/3);
+        s2.setY((screensize.getHeight()-660)/3);
         s2.setScene(scene);
         s2.show();
     }

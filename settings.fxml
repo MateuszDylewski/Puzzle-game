@@ -8,75 +8,43 @@
 <AnchorPane fx:id="pane" prefHeight="450.0" prefWidth="300.0"
             xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutY="70.0" wrappingWidth="300.0" textAlignment="CENTER">
+      <Text styleClass="bigText" layoutY="70.0" wrappingWidth="300.0" textAlignment="CENTER">
          SETTINGS
-         <font>
-            <Font size="40.0" />
-         </font>
       </Text>
       <AnchorPane styleClass="paneS">
          <Text fx:id="t3x3" styleClass="smallText" onMouseClicked="#onClick3x3"
-               layoutY="140.0" wrappingWidth="300.0"
+               layoutY="165.0" wrappingWidth="300.0"
                textAlignment="CENTER">
             EASY 3x3
-            <font>
-               <Font size="25.0" />
-            </font>
          </Text>
          <Text fx:id="t4x4" styleClass="smallText" onMouseClicked="#onClick4x4"
-               layoutY="175.0" wrappingWidth="300.0"
+               layoutY="220.0" wrappingWidth="300.0"
                textAlignment="CENTER">
             MEDIUM 4x4
-            <font>
-               <Font size="25.0" />
-            </font>
          </Text>
          <Text fx:id="t5x5" styleClass="smallText" onMouseClicked="#onClick5x5"
-               layoutY="210.0" wrappingWidth="300.0"
+               layoutY="275.0" wrappingWidth="300.0"
                textAlignment="CENTER">
             HARD 5x5
-            <font>
-               <Font size="25.0" />
-            </font>
-         </Text>
-         <Text fx:id="tCS" styleClass="smallText" onMouseClicked="#onClickCS"
-               layoutY="245.0" wrappingWidth="300.0"
-               textAlignment="CENTER">
-            CUSTOM SIZE
-            <font>
-               <Font size="25.0" />
-            </font>
          </Text>
          <Text styleClass="smallText"
-               wrappingWidth="70.0" textAlignment="CENTER"
+               wrappingWidth="80.0" textAlignment="CENTER"
                layoutX="14.0" layoutY="420.0"
-               onMouseClicked="#onClickBack" text="BACK">
+               onMouseClicked="#onClickBack">
+            BACK
             <font>
                <Font size="16.0" />
             </font>
          </Text>
          <Text styleClass="smallText"
-               wrappingWidth="70.0" textAlignment="CENTER"
-               layoutX="215.0" layoutY="420.0"
-               onMouseClicked="#onClickPlay" text="PLAY">
+               wrappingWidth="80.0" textAlignment="CENTER"
+               layoutX="205.0" layoutY="420.0"
+               onMouseClicked="#onClickPlay">
+            PLAY
             <font>
                <Font size="16.0" />
             </font>
          </Text>
       </AnchorPane>
-      <TextField fx:id="tfR" alignment="CENTER" editable="false"
-                 layoutX="82.0" layoutY="315.0"
-                 prefHeight="50.0" prefWidth="50.0" promptText="R">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="tfC" alignment="CENTER" editable="false"
-                 layoutX="167.0" layoutY="315.0"
-                 prefHeight="50.0" prefWidth="50.0" promptText="C">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
    </children>
 </AnchorPane>
