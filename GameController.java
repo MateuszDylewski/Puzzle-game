@@ -11,8 +11,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,12 +26,21 @@ public class GameController {
     private ImageView blackSpot;
     private ArrayList<ImageView> solvedPuzzle;
     private ArrayList<ImageView> currentGameBoard;
+    private int moves = 0;
+    private ArrayList<String> lastTimes = new ArrayList<>();
+
 
     @FXML
     public Text timer;
 
     @FXML
     public GridPane gameGP;
+
+    @FXML
+    public ScrollPane sp;
+
+    @FXML
+    public VBox vb;
 
     String timeToString(int min, int sec){
         String result = "";
@@ -47,20 +59,27 @@ public class GameController {
         String currentTime;
         int sec = 0, min = 0;
         while (true){
-            if(sec <60){
+            if(sec <59){
                 sec++;
             }else{
                 min++;
                 sec=0;
             }
-            //currentTime = timeToString(min, sec);
-            //timer.setText(currentTime);
-            timer.setText("xd");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex){
+                System.out.println(ex);
+            }
+            currentTime = timeToString(min, sec);
+            timer.setText(currentTime);
         }
     });
 
     public void initialize() throws IOException{
-        time.start();
+        for(int i = 0; i < lastTimes.size(); ++i) {
+            vb.getChildren().add(new Text(lastTimes.get(i)));
+        }
+        timer.setText("00:00");
         for(int i = 0; i < cr; ++i) {
             ColumnConstraints column = new ColumnConstraints();
             column.setMinWidth(600.0/cr);
@@ -81,7 +100,11 @@ public class GameController {
                 currentGameBoard.add(new ImageView(SwingFXUtils.toFXImage(
                         bi.getSubimage(600/cr*i, 600/cr*j, 600/cr, 600/cr), null)));
                 currentGameBoard.get(i*cr + j).addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-                    move(event);
+                    try {
+                        move(event);
+                    }catch (IOException ex){
+                        System.out.println(ex);
+                    }
                 });
                 currentGameBoard.get(i*cr + j).setId(i*cr+j + "");
             }
@@ -91,7 +114,11 @@ public class GameController {
         blackSpot = new ImageView(SwingFXUtils.toFXImage(
                 bi.getSubimage(0, 0, 600/cr, 600/cr), null));
         blackSpot.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            move(event);
+            try {
+                move(event);
+            }catch (IOException ex){
+                System.out.println(ex);
+            }
         });
         blackSpot.setId(cr*cr-1 + "");
         currentGameBoard.remove(cr*cr-1);
@@ -138,7 +165,11 @@ public class GameController {
         return true;
     }
 
-    public void move(MouseEvent event){
+    public void move(MouseEvent event)throws IOException{
+        if(moves == 0){
+            time.start();
+        }
+        moves++;
         ImageView clickedImg = (ImageView)(event.getSource());
         if(blackSpot == clickedImg){
             return;
@@ -165,11 +196,37 @@ public class GameController {
         }
     }
 
-    public GameController(Stage s, int cr){
-        this.cr = cr;
+    void getLastTimes(String path) throws IOException{
+        FileReader fr = new FileReader(path);
+        int pom;
+        String file = "";
+        while((pom = fr.read()) != -1){
+            file += (char)(pom);
+        }
+        String[] arr = file.split("\n", 0);
+        for(int i = 0; i < arr.length; ++i){
+            lastTimes.add(arr[i]);
+        }
     }
 
-    public void endGame(){
-        System.out.println("EASY");
+    void saveLastTimes(String path) throws IOException{
+        FileWriter fw = new FileWriter(path);
+        for(int i = 0; i < lastTimes.size(); ++i){
+            fw.write(lastTimes.get(i) + "\n");
+        }
+        fw.flush();
+    }
+
+    public GameController(Stage s, int cr)throws IOException{
+        this.cr = cr;
+        getLastTimes("C:\\Users\\mateu\\Desktop\\Studia\\GUI\\Puzzle\\src\\sample\\lastTimes.txt");
+    }
+
+    public void endGame() throws IOException{
+        time.stop();
+        lastTimes.add(timer.getText());
+        saveLastTimes("C:\\Users\\mateu\\Desktop\\Studia\\GUI\\Puzzle\\src\\sample\\lastTimes.txt");
+        vb.getChildren().add(new Text(timer.getText()));
+
     }
 }

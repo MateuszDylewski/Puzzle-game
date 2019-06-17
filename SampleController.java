@@ -20,7 +20,6 @@ public class SampleController {
 
     @FXML
     public void onClickStart(){
-        System.out.println("W1BCLICK");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
         SettingsController controller = new SettingsController(s1);
         loader.setController(controller);

@@ -78,7 +78,7 @@ public class SettingsController {
     }
 
     @FXML
-    public void onClickPlay(){
+    public void onClickPlay() throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
         GameController controller = new GameController(s2, choosen);
         loader.setController(controller);
